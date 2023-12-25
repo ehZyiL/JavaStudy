@@ -11,6 +11,7 @@
 
     <modules>
         <module>SecurityQuickStart</module>
+        <module>web-qrcode-login</module>
     </modules>
 
     <properties>

@@ -5,6 +5,9 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/QuartzStudy/pom.xml" />
+        <option value="$PROJECT_DIR$/WebSocketStudy/pom.xml" />
+        <option value="$PROJECT_DIR$/BaseAll/pom.xml" />
       </list>
     </option>
   </component>
