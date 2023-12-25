@@ -36,6 +36,7 @@ public class AccountingSync2 implements Runnable {
             for (int j = 0; j < 1000000; j++) {
                 i++;
             }
+
         }
 
 
