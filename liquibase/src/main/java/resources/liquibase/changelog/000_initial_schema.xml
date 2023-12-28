@@ -7,17 +7,15 @@
     <property name="now" value="now()" dbms="mysql"/>
     <property name="autoIncrement" value="true"/>
 
-    <changeSet id="00000000000001" author="YiHui">
+    <changeSet id="00000000000001" author="ehzyil">
         <sqlFile dbms="mysql" endDelimiter=";" encoding="UTF-8" path="liquibase/data/init-schema.sql"/>
     </changeSet>
-    <changeSet id="00000000000002" author="YiHui">
+    <changeSet id="00000000000002" author="ehzyil">
         <sqlFile dbms="mysql" endDelimiter=";" encoding="UTF-8" path="liquibase/data/init-schema-1.sql"/>
     </changeSet>
 
-    <changeSet id="00000000000003" author="YiHui">
+    <changeSet id="00000000000003" author="ehzyil">
         <sqlFile dbms="mysql" endDelimiter=";" encoding="UTF-8" path="liquibase/data/init-data.sql"/>
     </changeSet>
-
-
 
 </databaseChangeLog>

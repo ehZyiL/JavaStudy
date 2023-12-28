@@ -18,6 +18,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author ehyzil
@@ -80,30 +81,39 @@ public class ForumDataSourceInitializer {
     }
 
     /**
-     * 判断是否需要初始化数据库<br>
-     * * <span>
-     * needInit方法用于判断是否需要初始化数据库。该方法的参数是一个DataSource对象，表示数据源。在方法内部，先判断是否需要自动创建数据库，如果需要则返回true。
-     * 然后通过JdbcTemplate查询是否存在表，如果不存在则需要初始化数据库，并打印相应日志，否则不需要初始化并打印相应日志。
-     * </span>
+     * 检测一下数据库中表是否存在，若存在则不初始化；
      *
-     * @param dataSource 数据源
-     * @return 是否需要初始化
+     * @param dataSource
+     * @return true 表示需要初始化； false 表示无需初始化
      */
     private boolean needInit(DataSource dataSource) {
-        // 创建数据库
+
         if (autoInitDatabase()) {
-            return true;
+            return true; //不存在且已创建
         }
+
+        //已存在的执行逻辑
+
         // 根据是否存在表来判断是否需要执行sql操作
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-        List<Map<String, Object>> list = jdbcTemplate.queryForList("SELECT table_name FROM information_schema.TABLES where table_name = 'user' and table_schema = '" + database + "'");
-        boolean init = CollectionUtils.isEmpty(list);
-        if (init) {
-            log.info("库表不存在，即将执行建表及数据初始化");
-        } else {
-            log.info("表结构已存在，无需初始化");
+        if (!liquibaseEnable) {
+            // 非liquibase做数据库版本管理的，根据用户来判断是否有初始化
+            List list = jdbcTemplate.queryForList("SELECT table_name FROM information_schema.TABLES where table_name = 'user_info' and table_schema = '" + database + "';");
+            return CollectionUtils.isEmpty(list);
         }
-        return init;
+
+        // 对于liquibase做数据版本管控的场景，若使用的不是默认的pai_coding，则需要进行修订
+        List<Map<String, Object>> record = jdbcTemplate.queryForList("select * from DATABASECHANGELOG where ID='00000000000020' limit 1;");
+        if (CollectionUtils.isEmpty(record)) {
+            // 首次启动，需要初始化库表，直接返回
+            return true;
+        }
+
+        // 非首次启动时，判断记录对应的md5是否准确
+        if (Objects.equals(record.get(0).get("MD5SUM"), "8:a1a2d9943b746acf58476ae612c292fc")) {
+           jdbcTemplate.update("update DATABASECHANGELOG set MD5SUM='8:bb81b67a5219be64eff22e2929fed540' where ID='00000000000020'");
+        }
+        return false;
     }
 
     /**

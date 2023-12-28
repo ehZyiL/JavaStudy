@@ -17,16 +17,6 @@ public class SpringUtil implements ApplicationContextAware, EnvironmentAware {
     private static ApplicationContext context;
     private static Environment environment;
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        SpringUtil.context = applicationContext;
-    }
-
-    @Override
-    public void setEnvironment(Environment environment) {
-        SpringUtil.environment = environment;
-    }
-
     /**
      * 获取bean
      *
@@ -59,5 +49,15 @@ public class SpringUtil implements ApplicationContextAware, EnvironmentAware {
      */
     public static void publishEvent(ApplicationEvent event) {
         context.publishEvent(event);
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        SpringUtil.context = applicationContext;
+    }
+
+    @Override
+    public void setEnvironment(Environment environment) {
+        SpringUtil.environment = environment;
     }
 }
