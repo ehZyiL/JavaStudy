@@ -8,7 +8,13 @@
         <option value="$PROJECT_DIR$/QuartzStudy/pom.xml" />
         <option value="$PROJECT_DIR$/WebSocketStudy/pom.xml" />
         <option value="$PROJECT_DIR$/BaseAll/pom.xml" />
+        <option value="$PROJECT_DIR$/liquibase/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/web-qrcode-login/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">

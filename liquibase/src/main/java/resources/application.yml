@@ -1,0 +1,22 @@
+# 默认的数据库名
+database:
+  name: story
+
+spring:
+  liquibase:
+    change-log: classpath:liquibase/master.xml
+    enabled: true # 当实际使用的数据库不支持liquibase，如 mariadb 时，将这个参数设置为false
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/${database.name}?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 666666
+
+
+logging:
+  level:
+    root: info
+    org:
+      springframework:
+        jdbc:
+          core: debug
