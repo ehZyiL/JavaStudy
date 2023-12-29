@@ -1,9 +1,8 @@
 package com.example.multidatasource.service;
 
-
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.multidatasource.domain.Admin;
 import com.example.multidatasource.domain.User;
-import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -13,10 +12,8 @@ import java.util.List;
  * </p>
  *
  * @author ehzyil
- * @since 2023-12-28
+ * @since 2023-12-29
  */
-public interface IUserService extends IService<User> {
-
-    List<User> getAllUsers();
-
+public interface IAdminService extends IService<Admin> {
+    List<User> getAllAdmins();
 }

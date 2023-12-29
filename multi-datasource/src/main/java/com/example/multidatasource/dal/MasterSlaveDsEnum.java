@@ -6,5 +6,5 @@ package com.example.multidatasource.dal;
  * @create 2023-12-2023/12/28-18:40
  */
 public enum MasterSlaveDsEnum implements DS {
-    MASTER, SHOP, STORY,BLOG;
+    MASTER, SHOP, STORY,BLOG, SLAVE;
 }

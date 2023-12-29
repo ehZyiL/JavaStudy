@@ -6,6 +6,7 @@ import com.example.multidatasource.dal.DsAno;
 import com.example.multidatasource.dal.DsSelectExecutor;
 import com.example.multidatasource.dal.MasterSlaveDsEnum;
 import com.example.multidatasource.domain.User;
+import com.example.multidatasource.service.IAdminService;
 import com.example.multidatasource.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +30,9 @@ public class UserController {
 
     @Autowired
     private IUserService userService;
-    @DsAno(MasterSlaveDsEnum.STORY)
+    @Autowired
+    private IAdminService adminService;
+
     @GetMapping("/story")
     public Object test(){
         return userService.getAllUsers();
@@ -43,10 +46,17 @@ public class UserController {
     }
 
 
-    @GetMapping("/shop2")
+    @GetMapping("/blog")
     public Object test2(){
         List<User> submit = DsSelectExecutor.submit(MasterSlaveDsEnum.BLOG, () -> userService.getAllUsers());
+
         return  submit;
+    }
+
+
+    @GetMapping("/admin")
+    public Object admin(){
+        return  adminService.getAllAdmins();
     }
 
 }

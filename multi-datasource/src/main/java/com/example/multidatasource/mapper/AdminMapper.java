@@ -1,7 +1,7 @@
 package com.example.multidatasource.mapper;
 
-
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.multidatasource.domain.Admin;
 import com.example.multidatasource.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -14,11 +14,10 @@ import java.util.List;
  * </p>
  *
  * @author ehzyil
- * @since 2023-12-28
+ * @since 2023-12-29
  */
 @Mapper
-public interface UserMapper extends BaseMapper<User> {
-    @Select("select * from user where id =1")
-    List<User> getAllUsers();
-
+public interface AdminMapper extends BaseMapper<Admin> {
+    @Select("select * from admin ")
+    List<User> getAllAdmins();
 }

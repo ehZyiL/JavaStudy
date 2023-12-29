@@ -1,5 +1,8 @@
 package com.example.multidatasource.dal;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class DsContextHolder {
     /**
      * 使用继承的线程上下文，支持异步时选择传递
@@ -15,6 +18,7 @@ public class DsContextHolder {
     }
 
     public static String get() {
+        log.info("get dbType:{}", CONTEXT_HOLDER.get());
         return CONTEXT_HOLDER.get();
     }
 
