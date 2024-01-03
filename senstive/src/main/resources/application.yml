@@ -15,4 +15,14 @@ spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/${database.name}?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
+<<<<<<< HEAD
     password: 666666
+=======
+    password: 666666
+
+forum:
+  sensitive: # 敏感词校验相关配置
+    enable: true
+    deny: # 自定义的敏感词，英文逗号分割
+    allow: # 自定义的非敏感词，英文逗号分割
+>>>>>>> origin/test
