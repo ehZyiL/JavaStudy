@@ -1,4 +1,4 @@
-package com.example.senstive.senstive;
+package com.example.senstive.dal;
 
 import com.alibaba.druid.pool.DruidPooledPreparedStatement;
 import com.baomidou.mybatisplus.core.MybatisParameterHandler;
@@ -50,15 +50,8 @@ public class SqlStateInterceptor implements Interceptor {
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
         long time = System.currentTimeMillis();
-        final List<Object> results = (List<Object>) invocation.proceed();
-        if (results.isEmpty()) {
-            return results;
-        }
-
         StatementHandler statementHandler = (StatementHandler) invocation.getTarget();
         String sql = buildSql(statementHandler);
-        //判断数据库连接池类型
-
         Object[] args = invocation.getArgs();
         String uname = "";
         if (args[0] instanceof HikariProxyPreparedStatement) {

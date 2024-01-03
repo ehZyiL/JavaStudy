@@ -1,6 +1,6 @@
 package com.example.senstive;
 
-import com.example.senstive.senstive.SqlStateInterceptor;
+import com.example.senstive.dal.SqlStateInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
