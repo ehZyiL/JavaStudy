@@ -35,7 +35,6 @@ spring:
         username: root
         password: 666666
 
-
 logging:
   level:
     default: debug
@@ -43,3 +42,5 @@ mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
+server:
+  port: 80

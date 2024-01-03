@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/BaseAll/pom.xml" />
         <option value="$PROJECT_DIR$/liquibase/pom.xml" />
         <option value="$PROJECT_DIR$/multi-datasource/pom.xml" />
+        <option value="$PROJECT_DIR$/senstive/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
