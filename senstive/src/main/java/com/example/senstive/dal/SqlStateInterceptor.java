@@ -90,6 +90,9 @@ public class SqlStateInterceptor implements Interceptor {
      * @return 结果
      */
     private String getResult(String input) {
+        if (input.length() <= 2) {
+            return input;
+        }
         return input.substring(input.indexOf("(") + 1, input.lastIndexOf(")"));
     }
 

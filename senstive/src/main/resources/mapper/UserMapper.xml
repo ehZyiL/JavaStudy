@@ -2,5 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.senstive.mapper.UserMapper">
 
+    <!-- 一对多 分布查询 -->
+    <resultMap id="getUser" type="com.example.senstive.domain.User">
+        <!-- 用户信息映射 -->
+        <!-- column 数据库字段 | property 映射po类的字段名 -->
+        <id column="u1.id" property="id"/>
 
+        <collection property="users" column="id" ofType="com.example.senstive.domain.User">
+            <result column="u2.id" property="id"/>
+        </collection>
+
+    </resultMap>
+
+
+    <select id="getUser" resultMap="getUser" parameterType="java.lang.Integer">
+        select *
+        from user u1
+                 left join user u2 on u2.id = u1.id + 1
+        where u1.id = #{id}
+    </select>
 </mapper>

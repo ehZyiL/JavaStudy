@@ -24,6 +24,8 @@ public interface UserMapper extends BaseMapper<User> {
     @Insert("  INSERT INTO user (id,third_account_id, user_name, password, login_type, deleted, create_time, update_time)\n" +
             "        VALUES (#{id},#{thirdAccountId}, #{userName}, #{password}, #{loginType}, #{deleted}, #{createTime}, #{updateTime})\n")
     int insertU(User user);
-    @Select("select * from user where id =#{id}")
+//    @Select("select * from user where id =#{id}")
+//    User getUser(Integer id);
+
     User getUser(Integer id);
 }

@@ -17,6 +17,8 @@ import java.util.List;
 public interface IUserService extends IService<User> {
 
     List<User> getAllUsers();
+
     User getUser(Integer id);
+
     void insert(User user);
 }

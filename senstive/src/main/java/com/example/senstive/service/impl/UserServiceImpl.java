@@ -22,6 +22,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Autowired
     private UserMapper userMapper;
+
     @Override
     public List<User> getAllUsers() {
         return getBaseMapper().getAllUsers();
