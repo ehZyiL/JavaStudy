@@ -3,6 +3,5 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/SecurityQuickStart/sg_security_demo" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/sg_security_demo" vcs="Git" />
   </component>
 </project>

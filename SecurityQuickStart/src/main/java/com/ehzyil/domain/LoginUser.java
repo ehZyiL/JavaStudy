@@ -1,6 +1,6 @@
 package com.ehzyil.domain;
 
-import com.alibaba.fastjson.annotation.JSONField;
+importannotation.JSONField;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

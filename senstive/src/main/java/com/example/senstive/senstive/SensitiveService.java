@@ -62,31 +62,9 @@ public class SensitiveService {
             return ans;
         }
 
-//        // 敏感词命中次数+1
-//        RedisClient.PipelineAction action = RedisClient.pipelineAction();
-//        ans.forEach(key -> action.add(SENSITIVE_WORD_CNT_PREFIX, key, (connection, k, v) -> connection.hIncrBy(k, v, 1)));
-//        action.execute();
         return ans;
     }
 
-
-//    /**
-//     * 返回已命中的敏感词
-//     *
-//     * @return key: 敏感词， value：计数
-//     */
-//    public Map<String, Integer> getHitSensitiveWords() {
-//        return RedisClient.hGetAll(SENSITIVE_WORD_CNT_PREFIX, Integer.class);
-//    }
-
-//    /**
-//     * 移除敏感词
-//     *
-//     * @param word
-//     */
-//    public void removeSensitiveWord(String word) {
-//        RedisClient.hDel(SENSITIVE_WORD_CNT_PREFIX, word);
-//    }
 
     /**
      * 敏感词替换

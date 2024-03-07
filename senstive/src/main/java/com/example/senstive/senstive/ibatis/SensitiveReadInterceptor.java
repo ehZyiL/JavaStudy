@@ -123,12 +123,8 @@ public class SensitiveReadInterceptor implements Interceptor {
                     }
                 }
 
-
             });
-
-
         }
-
     }
 
     /**

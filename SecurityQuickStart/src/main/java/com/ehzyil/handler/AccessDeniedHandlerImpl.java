@@ -1,6 +1,6 @@
 package com.ehzyil.handler;
 
-import com.alibaba.fastjson.JSON;
+importJSON;
 import com.ehzyil.domain.ResponseResult;
 import com.ehzyil.utils.WebUtils;
 import org.springframework.http.HttpStatus;

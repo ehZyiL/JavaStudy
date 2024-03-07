@@ -15,7 +15,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.0</version>
+        <version>3.3.0-SNAPSHOT</version>
     </parent>
     <dependencies>
         <!--还要引入这个，不然后面javax.servlet依赖找不到-->
@@ -40,7 +40,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.33</version>
+            <version>2.0.32</version>
         </dependency>
 
         <!--jwt依赖-->

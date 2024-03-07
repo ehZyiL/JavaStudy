@@ -11,13 +11,18 @@
         <option value="$PROJECT_DIR$/liquibase/pom.xml" />
         <option value="$PROJECT_DIR$/multi-datasource/pom.xml" />
         <option value="$PROJECT_DIR$/senstive/pom.xml" />
+        <option value="$PROJECT_DIR$/SecurityQuickStart/pom.xml" />
+        <option value="$PROJECT_DIR$/ChatAi/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/ChatAi/pom.xml" />
+        <option value="$PROJECT_DIR$/SecurityQuickStart/pom.xml" />
         <option value="$PROJECT_DIR$/web-qrcode-login/pom.xml" />
       </set>
     </option>
+    <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
