@@ -34,7 +34,11 @@ spring:
         url: jdbc:mysql://127.0.0.1:3306/sg_blog?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
         username: root
         password: 666666
-
+      blog1:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://8.210.2.174:5433/memos
+        username: memos
+        password: dbformemos
 logging:
   level:
     default: debug
