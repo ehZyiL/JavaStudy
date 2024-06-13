@@ -1,3 +1,5 @@
+package com.example.baseall.AES;
+
 import org.apache.commons.lang3.StringUtils;
 
 import javax.crypto.Cipher;
@@ -10,7 +12,7 @@ import java.util.Base64;
  * <h1>AES 加密和解密示例代码</h1>
  * Created by woniu
  */
-public class AESExample {
+public class AESExample2 {
 
     /**
      * 加密模式之 ECB，算法/模式/补码方式
