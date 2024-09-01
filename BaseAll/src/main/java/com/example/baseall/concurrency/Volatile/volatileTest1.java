@@ -1,4 +1,4 @@
-package com.example.baseall.Concurrency.Volatile;
+package com.example.baseall.concurrency.Volatile;
 
 public class volatileTest1 {
     public int inc = 0;

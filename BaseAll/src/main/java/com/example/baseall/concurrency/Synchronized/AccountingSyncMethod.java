@@ -1,4 +1,4 @@
-package com.example.baseall.Concurrency.Synchronized;
+package com.example.baseall.concurrency.Synchronized;
 
 public class AccountingSyncMethod {
     //共享资源(临界资源)

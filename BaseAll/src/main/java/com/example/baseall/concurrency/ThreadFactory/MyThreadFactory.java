@@ -1,4 +1,4 @@
-package com.example.baseall.Concurrency.ThreadFactory;
+package com.example.baseall.concurrency.ThreadFactory;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;

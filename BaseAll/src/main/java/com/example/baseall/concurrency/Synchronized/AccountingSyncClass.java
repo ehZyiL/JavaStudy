@@ -1,4 +1,4 @@
-package com.example.baseall.Concurrency.Synchronized;
+package com.example.baseall.concurrency.Synchronized;
 
 public class AccountingSyncClass implements Runnable {
     static int i = 0;

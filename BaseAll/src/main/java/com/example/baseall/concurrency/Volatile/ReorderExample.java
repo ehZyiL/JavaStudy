@@ -1,4 +1,4 @@
-package com.example.baseall.Concurrency.Volatile;
+package com.example.baseall.concurrency.Volatile;
 
 class ReorderExample {
     int a = 0;

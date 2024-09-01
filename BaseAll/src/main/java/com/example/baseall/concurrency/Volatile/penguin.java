@@ -1,4 +1,4 @@
-package com.example.baseall.Concurrency.Volatile;
+package com.example.baseall.concurrency.Volatile;
 
 /**
  * volatile 实现单例模式的双重锁

@@ -1,4 +1,4 @@
-package com.example.baseall.AES;
+package com.example.baseall.aes;
 
 import org.apache.commons.lang3.StringUtils;
 

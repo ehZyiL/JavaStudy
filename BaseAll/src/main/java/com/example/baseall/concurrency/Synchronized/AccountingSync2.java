@@ -1,4 +1,4 @@
-package com.example.baseall.Concurrency.Synchronized;
+package com.example.baseall.concurrency.Synchronized;
 
 public class AccountingSync2 implements Runnable {
     static AccountingSync2 instance = new AccountingSync2(); // 饿汉单例模式

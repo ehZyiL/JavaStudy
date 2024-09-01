@@ -1,4 +1,4 @@
-package com.example.baseall.Concurrency.Volatile;
+package com.example.baseall.concurrency.Volatile;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
