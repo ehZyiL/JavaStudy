@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 ECharts 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <title>知识图谱概览</title>
+</head>
+
+<body>
+    <div class="panel">
+        <!-- 准备一个用于放置图表的 DOM -->
+        <div id="model-kg-graph" style="height: 800px"></div>
+    </div>
+
+
+
+</body>
+<script>
+
+    var graph_data = {
+        categories: ["本供应商", "关联供应商"],
+        links: [{ "source": "2006193215", "target": "18692064", "value": "法定代表人,董事长" }, { "source": "394708321", "target": "433370866", "value": "参股100.0000%" }, { "source": "394708321", "target": "7199625", "value": "参股100.0000%" }, { "source": "2006193215", "target": "7199625", "value": "董事长,总经理,法定代表人" }, { "source": "433370866", "target": "18692064", "value": "参股14.9200%" }, { "source": "7199625", "target": "18692064", "value": "参股30.2600%" }, { "source": "1916809741", "target": "18692064", "value": "监事" }, { "source": "1916809741", "target": "7199625", "value": "监事" }],
+        nodes: [{ "id": 18692064, "name": "上海建工集团股份有限公司", "itemStyle": { "color": "#d62728" }, "value": 60, "symbolSize": 70, "category": 0 }, { "id": 1916809741, "name": "廉永梅", "itemStyle": { "color": "#047c4a" }, "value": 60, "symbolSize": 60, "category": 1 }, { "id": 2006193215, "name": "杭迎伟", "itemStyle": { "color": "#047c4a" }, "value": 60, "symbolSize": 60, "category": 1 }, { "id": 7199625, "name": "上海建工控股集团有限公司", "itemStyle": { "color": "#d62728" }, "value": 60, "symbolSize": 70, "category": 0 }, { "id": 433370866, "name": "上海国盛（集团）有限公司", "itemStyle": { "color": "#047c4a" }, "value": 60, "symbolSize": 60, "category": 1 }, { "id": 394708321, "name": "上海市国有资产监督管理委员会", "itemStyle": { "color": "#047c4a" }, "value": 60, "symbolSize": 60, "category": 1 }]
+    };
+
+    // 指定图表的配置项和数据
+
+    let option = {
+        tooltip: {
+            // 显示提示框
+            show: true,
+            // 提示框内容格式化
+            formatter: "<div style='display:block;word-break: break-all;word-wrap: break-word;white-space:pre-wrap;max-width: 80px'>" + "{b} " + "</div>"
+        },
+        // 更新动画持续时间
+        animationDurationUpdate: 100,
+        // 更新动画的缓动效果
+        animationEasingUpdate: 'quinticInOut',
+        legend: {
+            // // 图例位置，靠右
+            // right: 0,
+            // 图例位置，居中
+            left: 'center',
+            // 显示图例
+            show: true,
+            textStyle: {
+                // 图例文字颜色
+                color: '#666',
+            },
+            // 图例内容
+            data: graph_data.categories
+        },
+        series: [
+            {
+                type: 'graph', // 图类型：关系图
+                layout: 'force', // 布局方式：力引导布局
+                symbolSize: function (size) {
+                    return size; // 节点的大小
+                },
+                draggable: false, //不可拖拽
+                edgeSymbol: ['none', 'arrow'], // 边的符号类型，无符号和箭头
+                edgeSymbolSize: [4, 10], // 边符号的大小
+                edgeLabel: {
+                    normal: {
+                        // 显示边的标签
+                        show: true,
+                        textStyle: {
+                            fontSize: 12,
+                            color: '#f4c37c'
+                        },
+                        // 标签内容格式化，显示边的值
+                        formatter: "{c}"
+                    }
+                },
+                force: {
+                    // 节点之间的斥力
+                    repulsion: 2500,
+                    // 禁用布局动画
+                    layoutAnimation: false,
+                    // 边的长度范围
+                    edgeLength: [20, 100],
+                },
+                // 聚焦节点时高亮相邻节点
+                focusNodeAdjacency: true,
+                // 允许平移和缩放
+                roam: true,
+                categories: [{
+                    name: '本供应商',
+                    itemStyle: {
+                        normal: {
+                            // 节点颜色设置
+                            color: "#ec6941",
+                            borderColor: '#ffa98b',
+                            borderWidth: 6
+                        }
+                    }
+                }, {
+                    name: '关联供应商',
+                    itemStyle: {
+                        normal: {
+                            // 节点颜色设置
+                            color: '#047c4a',
+                            borderColor: '#80c9ff',
+                            borderWidth: 6
+                        }
+                    }
+                }],
+                label: {
+                    normal: {
+                        // 显示节点标签
+                        show: true,
+                        textStyle: {
+                            fontSize: 12
+                        }
+                    }
+                },
+                // 力引导布局设置
+                force: {
+                    initLayout: "circular", // 初始布局：圆形
+                    layoutAnimation: false, // 禁用布局动画
+                    repulsion: 4000 // 节点斥力
+                },
+                tooltip: {
+                    // 提示框内容格式化，显示节点名称
+                    formatter: function (node) {
+                        return node.data.name;
+                    },
+                },
+                lineStyle: {
+                    normal: {
+                        opacity: 1, // 边透明度
+                        width: 1, // 边宽度
+                        color: '#d1d2d2', // 边颜色
+                        curveness: 0.2 // 设置边的弯曲程度
+                    }
+                },
+                emphasis: {
+                    focus: "adjacency", // 高亮相邻的元素
+                    itemStyle: {
+                        shadowColor: "rgba(0, 0, 0, 0.5)", // 较浓的阴影颜色，增加视觉深度
+                        shadowBlur: 20, // 更大的模糊半径，使阴影效果更加显著
+                        borderColor: '#ffa726', // 添加高亮时的边框颜色（橙色），使节点更加突出
+                        borderWidth: 2 // 边框宽度增加，使高亮更加明显
+                    },
+                    lineStyle: {
+                        width: 4, // 明显加粗边的宽度
+                        color: '#ff7043', // 高亮边的颜色变为橙色，突出显示
+                    },
+                    label: {
+                        textBorderWidth: 2 // 较宽的边框，确保文本清晰可见
+                    }
+                },
+                // 节点数据
+                data: graph_data.nodes,
+                // 边数据（关系数据）
+                links: graph_data.links
+            }
+        ]
+    };
+    // 基于准备好的 DOM，初始化 ECharts 实例
+    var graph_chart = echarts.init(document.getElementById("model-kg-graph"));
+
+    // 新的配置将取代所有旧的配置
+    graph_chart.setOption(option, true);
+
+
+</script>
+
+</html>
