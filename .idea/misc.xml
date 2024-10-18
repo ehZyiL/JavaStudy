@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$USER_HOME$/Desktop/openai-java" />
     <file type="web" url="file://$PROJECT_DIR$/TestSoap" />
   </component>
   <component name="MavenProjectsManager">
@@ -19,6 +20,16 @@
         <option value="$PROJECT_DIR$/ApplicationEventStudy/pom.xml" />
         <option value="$PROJECT_DIR$/FileUpload/pom.xml" />
         <option value="$PROJECT_DIR$/TestSmsWithSoap/pom.xml" />
+        <option value="$PROJECT_DIR$/java-common-mistakes/pom.xml" />
+        <option value="$USER_HOME$/Desktop/AI-java/pom.xml" />
+        <option value="$USER_HOME$/Desktop/openai-java-sdk/pom.xml" />
+        <option value="$USER_HOME$/Desktop/openai-proxy/pom.xml" />
+        <option value="$USER_HOME$/Desktop/openai-sdk-java/pom.xml" />
+        <option value="$USER_HOME$/Desktop/chatbot-api/pom.xml" />
+        <option value="$USER_HOME$/Desktop/paicoding-main/pom.xml" />
+        <option value="$USER_HOME$/Desktop/chatgpt-java/pom.xml" />
+        <option value="$USER_HOME$/Desktop/chatgpt-java-1/pom.xml" />
+        <option value="$USER_HOME$/Desktop/chatgpt-java-2/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

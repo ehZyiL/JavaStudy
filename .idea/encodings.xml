@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$USER_HOME$/Desktop/AI-java/ai-baidu/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/AI-java/ai-baidu/src/main/resources" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/AI-java/ai-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/AI-java/ai-core/src/main/resources" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/AI-java/ai-openai/src/main/resources" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/AI-java/ai-spark/src/main/resources" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/chatbot-api/chatbot-api-application/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/chatbot-api/chatbot-api-common/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/chatbot-api/chatbot-api-domain/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/chatbot-api/chatbot-api-infrastructure/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/chatbot-api/chatbot-api-interfaces/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/chatbot-api/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/chatbot-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/chatgpt-java-1/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/chatgpt-java-1/src/main/resources" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/chatgpt-java-2/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/chatgpt-java-2/src/main/resources" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/chatgpt-java/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/chatgpt-java/src/main/resources" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/openai-java-sdk/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/openai-java-sdk/src/main/resources" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/openai-proxy/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/openai-sdk-java/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/openai-sdk-java/src/main/resources" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/paicoding-main/paicoding-api/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/paicoding-main/paicoding-core/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/paicoding-main/paicoding-service/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/paicoding-main/paicoding-ui/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/paicoding-main/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/paicoding-main/src/main/resources" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Desktop/paicoding-main/src/main/resources-env/dev" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/AboutExcel/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/AboutExcel/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ApplicationEventStudy/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/BaseAll/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/BaseAll/src/main/resources" charset="UTF-8" />
@@ -12,12 +45,17 @@
     <file url="file://$PROJECT_DIR$/TestSmsWithSoap/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/WebSocketStudy/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/WebSocketStudy/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-common-mistakes/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/liquibase/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/liquibase/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/multi-datasource/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/multi-datasource/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/senstive/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/senstive/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ssm/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ssm/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/web-qrcode-login/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/web-qrcode-login/src/main/resources" charset="UTF-8" />
   </component>

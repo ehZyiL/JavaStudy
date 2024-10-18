@@ -5,10 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ehzyil</groupId>
-    <artifactId>SpringBootStudy</artifactId>
+    <artifactId>JavaStudy</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>AboutExcel</module>
+        <module>ssm</module>
+    </modules>
     <version>1.0-SNAPSHOT</version>
-
 
 
     <properties>
