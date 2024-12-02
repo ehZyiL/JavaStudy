@@ -37,10 +37,10 @@
         <option value="$PROJECT_DIR$/ChatAi/pom.xml" />
         <option value="$PROJECT_DIR$/SecurityQuickStart/pom.xml" />
         <option value="$PROJECT_DIR$/TestSmsWithSoap/pom.xml" />
+        <option value="$PROJECT_DIR$/java-common-mistakes/pom.xml" />
         <option value="$PROJECT_DIR$/web-qrcode-login/pom.xml" />
       </set>
     </option>
-    <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
