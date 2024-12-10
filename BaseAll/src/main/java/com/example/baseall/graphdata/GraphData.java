@@ -7,8 +7,6 @@ import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.*;
@@ -26,44 +24,41 @@ public class GraphData {
      * @param adjacencyList 邻接列表，表示节点之间的关系
      * @return 包含所有路径的列表，每条路径是一个节点ID的列表
      */
-    public static List<List<String>> findAllPaths(String startNode, Map<String,Set<String>> adjacencyList) {
-        Set<Set<String>> allPaths=new HashSet<>();
-
-        dfs(startNode, "", new ArrayList<String>(), allPaths, new HashSet<String>(), adjacencyList);
-        List<List<String>> allPathsList=allPaths.stream()
-                .map(ArrayList::new) // Convert each Set<String> to List<String>
-                .collect(Collectors.toList());
-        return allPathsList;
+    public static List<List<String>> findAllPaths(String startNode, Map<String, Set<String>> adjacencyList) {
+        Set<List<String>> allPaths = new HashSet<>();
+        dfs(startNode, startNode, new ArrayList<String>(), allPaths, new HashSet<String>(), adjacencyList);
+        return new ArrayList<>(allPaths);
     }
-
 
     /**
      * 深度优先搜索算法，用于递归查找所有可能的路径。
      *
      * @param currentNode   当前节点ID
-     * @param parentNode
      * @param currentPath   当前路径
      * @param allPaths      保存所有路径的列表
      * @param visited       已访问的节点集合，防止循环
      * @param adjacencyList 邻接列表
      */
-    private static void dfs(String currentNode, String parentNode, List<String> currentPath, Set<Set<String>> allPaths, Set<String> visited, Map<String,Set<String>> adjacencyList) {
+    private static void dfs(String currentNode, String parentNode, List<String> currentPath, Set<List<String>> allPaths, Set<String> visited, Map<String, Set<String>> adjacencyList) {
         currentPath.add(currentNode);
         visited.add(currentNode);
 
-        if(currentPath.size()>=2) {
-            for(int i=0; i<currentPath.size()-1; i++) {
-                Set<String> pathPair=new HashSet<>(currentPath.subList(i, i+2));
+        // 将当前路径的长度大于2的部分分解成长度为2的子路径并添加到allPaths
+        if (currentPath.size() >= 2) {
+            for (int i = 0; i < currentPath.size() - 1; i++) {
+                List<String> pathPair = new ArrayList<>(currentPath.subList(i, i + 2));
                 allPaths.add(pathPair);
             }
         }
-        adjacencyList.getOrDefault(currentNode, new HashSet<>()).stream()
-                .filter(neighbor->!visited.contains(neighbor))
-                .forEach(neighbor->dfs(neighbor, currentNode, currentPath, allPaths, visited, adjacencyList));
 
-        currentPath.remove(currentPath.size()-1);
-        visited.remove(currentNode);
+        // 遍历当前节点的邻居节点，如果未访问且不是父节点则继续递归
+        adjacencyList.getOrDefault(currentNode, Collections.emptySet()).stream()
+                .filter(neighbor -> !neighbor.equals(parentNode) && !visited.contains(neighbor))
+                .forEach(neighbor -> dfs(neighbor, currentNode, currentPath, allPaths, visited, adjacencyList));
 
+        // 回溯：移除当前路径中的最后一个节点（但不要移除visited中的节点）
+        currentPath.remove(currentPath.size() - 1);
+        // 注意：这里不移除visited集合中的currentNode
     }
 
 
@@ -161,8 +156,7 @@ public class GraphData {
         JSONArray relationshipsArrays = new JSONArray();
         JSONArray nodesArrays = new JSONArray();
         // 指定节点
-//        List<String> targetNodes = Arrays.asList("18692064", "571195367", "7199625");
-        List<String> targetNodes=Arrays.asList("18692064", "571195367");
+        List<String> targetNodes = Arrays.asList("18692064", "571195367", "7199625");
 
         for (int i = 0; i < targetNodes.size(); i++) {
             JSONObject result = GetDataUtil.getProblemType(String.valueOf(i + 1));
@@ -181,29 +175,10 @@ public class GraphData {
         deleteSingleData(nodeList, relationshipList);
         handleShowData(targetNodes, nodeList, relationshipList);
 
+
         System.out.println(JSON.toJSONString(nodeList));
-
+        System.out.println();
         System.out.println(JSON.toJSONString(relationshipList));
-
-        JSONObject result=new JSONObject();
-        result.put("nodes", nodeList);
-        result.put("relationships", relationshipList);
-
-        String projectRoot = System.getProperty("user.dir");
-        // 指定输出文件路径
-        String filePath=projectRoot + "/BaseAll/src/main/resources/data/graphdata/result.json";
-        File file = new File(filePath);
-
-        file.getParentFile().mkdirs(); // 确保目录存在
-
-        try(FileWriter writer=new FileWriter(file)) {
-            writer.write(result.toJSONString());
-            System.out.println("结果已成功写入文件: "+file.getAbsolutePath());
-        } catch(IOException e) {
-            System.out.println("写入文件时发生错误: "+e.getMessage());
-            e.printStackTrace();
-        }
-      
     }
 
     /**
@@ -409,18 +384,6 @@ public class GraphData {
         // 处理节点数据并构建节点信息
         processNodes(nodesArrays, nodes);
 
-        boolean pathExists=hasPath(targetNodes.get(0), targetNodes.get(1), adjacencyList);
-        if(pathExists) {
-            // 存在通路
-            System.out.println("存在通路....");
-            // ...
-        } else {
-            // 不存在通路
-            System.out.println("不存在通路....");
-
-            // ...
-        }
-
         // 查找所有目标节点之间的公共路径
         List<List<List<String>>> allCommonPaths = findAllCommonPaths(targetNodes, adjacencyList);
 
@@ -429,47 +392,6 @@ public class GraphData {
 
         // 删除无关的数据
         deleteUnvailableData(uniqueNodeIds, relationshipsArrays, nodesArrays);
-    }
-
-
-    /**
-     * 判断两个节点之间是否存在通路
-     *
-     * @param start  起始节点
-     * @param end    目标节点
-     * @param ljbMap 邻接表
-     * @return 如果存在通路返回 true，否则返回 false
-     */
-    private static boolean hasPath(String start, String end, Map<String,Set<String>> ljbMap) {
-        return dfsHasPath(start, end, ljbMap, new HashSet<String>())||dfsHasPath(end, start, ljbMap, new HashSet<String>());
-    }
-
-    /**
-     * 深度优先搜索判断是否存在通路
-     *
-     * @param current 当前节点
-     * @param end     目标节点
-     * @param ljbMap  邻接表
-     * @param visited 已访问的节点集合
-     * @return 如果存在通路返回 true，否则返回 false
-     */
-    private static boolean dfsHasPath(String current, String end, Map<String,Set<String>> ljbMap, Set<String> visited) {
-        if(current.equals(end)) {
-            return true;
-        }
-
-        visited.add(current);
-
-        Set<String> neighbors=ljbMap.getOrDefault(current, Collections.emptySet());
-        for(String neighbor : neighbors) {
-            if(!visited.contains(neighbor)) {
-                if(dfsHasPath(neighbor, end, ljbMap, visited)) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
     }
 
     /**
@@ -526,7 +448,6 @@ public class GraphData {
         return allCommonPaths;
     }
 
-
     /**
      * 将节点信息添加到节点映射中。
      *
@@ -550,38 +471,6 @@ public class GraphData {
         adjacencyList.computeIfAbsent(startNode, k -> new HashSet<>()).add(startNode);
         adjacencyList.computeIfAbsent(endNode, k -> new HashSet<>()).add(endNode);
         adjacencyList.computeIfAbsent(endNode, k -> new HashSet<>()).add(startNode);
-    }
-
-
-    private List<String> findShortestPath(String start, String end, Map<String,Set<String>> adjacencyList) {
-        Queue<List<String>> queue=new LinkedList<>();
-        Set<String> visited=new HashSet<>();
-
-        List<String> path=new ArrayList<>();
-        path.add(start);
-        queue.offer(path);
-        visited.add(start);
-
-        while(!queue.isEmpty()) {
-            List<String> currentPath=queue.poll();
-            String currentNode=currentPath.get(currentPath.size()-1);
-
-            if(currentNode.equals(end)) {
-                return currentPath;
-            }
-
-            Set<String> neighbors=adjacencyList.getOrDefault(currentNode, new HashSet<>());
-            for(String neighbor : neighbors) {
-                if(!visited.contains(neighbor)) {
-                    List<String> newPath=new ArrayList<>(currentPath);
-                    newPath.add(neighbor);
-                    queue.offer(newPath);
-                    visited.add(neighbor);
-                }
-            }
-        }
-
-        return new ArrayList<>(); // 如果没有找到路径，返回空列表
     }
 
 }
