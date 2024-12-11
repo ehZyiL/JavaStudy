@@ -471,6 +471,7 @@ public class GraphData {
         adjacencyList.computeIfAbsent(startNode, k -> new HashSet<>()).add(startNode);
         adjacencyList.computeIfAbsent(endNode, k -> new HashSet<>()).add(endNode);
         adjacencyList.computeIfAbsent(endNode, k -> new HashSet<>()).add(startNode);
+        // 测试回退 2
     }
 // 测试回退 1
 }
